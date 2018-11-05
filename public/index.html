@@ -1,11 +1,16 @@
+<% const packageJson = require('../package.json') %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>gas-vue-ts</title>
+<% if (process.env.NODE_ENV === 'production') { %>
+  <% for (cssFile of htmlWebpackPlugin.files.css) { %>
+    <style type="text/css"><%= compilation.assets[cssFile.substr(htmlWebpackPlugin.files.publicPath.length)].source() %></style>
+  <% } %>
+<% } %>
   </head>
   <body>
     <noscript>
@@ -13,5 +18,12 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+<% if (process.env.NODE_ENV === 'production') { %>
+    <script src="https://unpkg.com/vue@<%= packageJson.dependencies['vue'] %>/dist/vue.runtime.min.js"></script>
+    <script src="https://unpkg.com/vue-router@<%= packageJson.dependencies['vue-router'] %>/dist/vue-router.min.js"></script>
+  <% for (jsFile of htmlWebpackPlugin.files.js) { %>
+    <script type="text/javascript"><%= compilation.assets[jsFile.substr(htmlWebpackPlugin.files.publicPath.length)].source() %></script>
+  <% } %>
+<% } %>
   </body>
 </html>

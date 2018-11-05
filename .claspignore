@@ -1,0 +1,4 @@
+**/*
+!dist/appsscript.json
+!dist/Code.js
+!dist/index.html
