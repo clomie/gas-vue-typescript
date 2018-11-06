@@ -1,31 +1,44 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app id="app-root">
+    <navigation-drawer v-model="drawer"/>
+    <v-toolbar color="blue" dark clipped-left fixed app>
+      <v-toolbar-side-icon @click.stop="toggleDrawer"/>
+      <v-toolbar-title>GAS built by Vue CLI v3</v-toolbar-title>
+    </v-toolbar>
+    <v-content>
+      <v-container fluid fill-height grid-list-md>
+        <router-view/>
+      </v-container>
+    </v-content>
+    <v-footer color="blue" dark class="app-footer">
+      <span>gas-vue-ts</span>
+    </v-footer>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
+import NavigationDrawer from './components/NavigationDrawer'
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+export default {
+  name: 'App',
+  components: {
+    NavigationDrawer
+  },
+  data() {
+    return {
+      drawer: null
+    }
+  },
+  methods: {
+    toggleDrawer() {
+      this.drawer = !this.drawer
+    }
+  }
 }
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+<style scoped>
+.app-footer {
+  justify-content: center;
 }
 </style>
