@@ -18,8 +18,9 @@
     <noscript>
       <strong>We're sorry but gas-vue-ts doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app"><div id="loading"></div></div>
     <!-- built files will be auto injected -->
+    <script src="https://apis.google.com/js/api.js"></script>
 <% if (process.env.NODE_ENV === 'production') { %>
     <script src="https://unpkg.com/vue@<%= packageJson.dependencies['vue'] %>/dist/vue.runtime.min.js"></script>
     <script src="https://unpkg.com/vue-router@<%= packageJson.dependencies['vue-router'] %>/dist/vue-router.min.js"></script>
