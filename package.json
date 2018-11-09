@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && webpack --progress --config webpack.config.gas.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -23,10 +23,13 @@
     "@vue/eslint-config-prettier": "^4.0.0",
     "@vue/eslint-config-typescript": "^3.1.0",
     "babel-eslint": "^10.0.1",
+    "es3ify-webpack-plugin": "^0.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
+    "gas-webpack-plugin": "^0.3.0",
     "typescript": "^3.0.0",
     "vue-cli-plugin-vuetify": "^0.4.5",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "webpack-cli": "^3.1.2"
   }
 }

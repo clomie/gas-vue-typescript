@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "strict": true,
+    "allowJs": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "lib": ["esnext"]
+  },
+  "include": ["script/**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -8,13 +8,11 @@ export class GooglePicker {
   }
 
   async pickSpreadsheet(): Promise<PickedObject> {
-    const docs = await this.pick(google.picker.ViewId.SPREADSHEETS)
-    return docs[0]
+    return await this.pick(google.picker.ViewId.SPREADSHEETS)
   }
 
   async pickFolder(): Promise<PickedObject> {
-    const docs = await this.pick(google.picker.ViewId.FOLDERS)
-    return docs[0]
+    return await this.pick(google.picker.ViewId.FOLDERS)
   }
 
   private async pick(viewId: string): Promise<any> {
