@@ -57,7 +57,9 @@ const productionConfig = {
     devtool: 'inline-source-map',
     externals: {
       vue: 'Vue',
-      'vue-router': 'VueRouter'
+      'vue-router': 'VueRouter',
+      vuetify: 'Vuetify',
+      'vuetify/dist/vuetify.min.css': 'undefined'
     }
   },
   css: {
