@@ -3,7 +3,6 @@
     "target": "es5",
     "module": "es2015",
     "strict": true,
-    "allowJs": true,
     "importHelpers": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -13,6 +12,6 @@
     "baseUrl": ".",
     "lib": ["esnext"]
   },
-  "include": ["script/**/*.ts"],
+  "include": ["script/**/*.ts", "types/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -7,11 +7,11 @@ export class GooglePicker {
     this.oauthToken = oauthToken
   }
 
-  async pickSpreadsheet(): Promise<PickedObject> {
+  async pickSpreadsheet(): Promise<PickedObject[]> {
     return await this.pick(google.picker.ViewId.SPREADSHEETS)
   }
 
-  async pickFolder(): Promise<PickedObject> {
+  async pickFolder(): Promise<PickedObject[]> {
     return await this.pick(google.picker.ViewId.FOLDERS)
   }
 

@@ -3,7 +3,7 @@ export class GoogleScript {
     return this.run('getOAuthToken')
   }
 
-  public copyFile(params: any): Promise<any> {
+  public copyFile(params: CopyFileParams): Promise<CopyFileResult> {
     return this.run('copyFile', params)
   }
 

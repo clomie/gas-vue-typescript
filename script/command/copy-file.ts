@@ -1,4 +1,4 @@
-export function copyFile(params) {
+export function copyFile(params: CopyFileParams): CopyFileResult {
   const sourceFile = DriveApp.getFileById(params.source.id)
   const targetFolder = DriveApp.getFolderById(params.target.id)
   const name = params.fileName
