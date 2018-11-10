@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title class="headline">ファイルのコピー</v-card-title>
-    <v-divider/>
+    <v-divider />
     <v-card-text>
       <v-layout column>
         <v-flex xs12>
@@ -27,11 +27,11 @@
           />
         </v-flex>
         <v-flex xs12>
-          <v-text-field label="ファイル名" v-model="newFileName" hide-details/>
+          <v-text-field label="ファイル名" v-model="newFileName" hide-details />
         </v-flex>
       </v-layout>
     </v-card-text>
-    <v-divider/>
+    <v-divider />
     <v-card-actions>
       <v-btn
         v-if="copiedFile.id"
@@ -39,7 +39,7 @@
         color="primary"
         :href="copiedFile.url"
         target="_blank"
-      >ファイルを開く
+        >ファイルを開く
         <v-icon right>open_in_new</v-icon>
       </v-btn>
       <v-btn
@@ -48,7 +48,8 @@
         @click="execute"
         :disabled="!ready || executing"
         :loading="executing"
-      >新規作成</v-btn>
+        >新規作成</v-btn
+      >
     </v-card-actions>
   </v-card>
 </template>
@@ -100,5 +101,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

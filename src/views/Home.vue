@@ -1,8 +1,6 @@
 <template>
   <v-layout row wrap="" align-content-start>
-    <v-flex xs12>
-      <copy-file/>
-    </v-flex>
+    <v-flex xs12><copy-file /></v-flex>
   </v-layout>
 </template>
 
