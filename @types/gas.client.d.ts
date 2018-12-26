@@ -57,7 +57,7 @@ declare namespace google {
     /**
      * google.script.run is an asynchronous client-side JavaScript API available in HTML-service pages that can call server-side Apps Script functions.
      */
-    export interface run {
+    interface run {
       // todo myFunction definition
       /**
        * Sets a callback function to run if the server-side function throws an exception. Without a failure handler, failures are logged to the JavaScript console. To override this, call withFailureHandler(null) or supply a failure handler that does nothing.
@@ -78,7 +78,7 @@ declare namespace google {
       [key: string]: (args?: any) => void
     }
 
-    export var run: run
+    var run: run
 
     namespace host {
       /**

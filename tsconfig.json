@@ -16,12 +16,13 @@
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
+    "@types/**/*",
+    "script/**/*",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "types/**/*.d.ts"
+    "tests/**/*.tsx"
   ],
   "exclude": ["node_modules"]
 }

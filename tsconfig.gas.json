@@ -12,6 +12,6 @@
     "baseUrl": ".",
     "lib": ["esnext"]
   },
-  "include": ["script/**/*.ts", "types/**/*.ts"],
+  "include": ["@types/**/*.ts", "script/**/*.ts"],
   "exclude": ["node_modules"]
 }
