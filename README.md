@@ -7,45 +7,56 @@ Google Apps Script project setup with
 - Function call from client side
 - Google Picker
 
-## setup
+## Setup
 
-### Install node modules
-```
-npm install
-```
-
-### Clasp setup
-```
-npm -g install @google/clasp
-clasp login
-clasp create --rootDir dist
+### Install Node Modules
+```console
+% npm install
 ```
 
-### Google Picker setup
+### Clasp Setup
+```console
+% npm -g install @google/clasp
+% clasp login
+% clasp create --type webapp --rootDir dist
+Created new undefined script: https://script.google.com/d/**********/edit
+Cloned 1 file.
+└─ dist/appsscript.json
+%
+```
+
+### Google Picker Setup
 See below link and register your project.  
 https://developers.google.com/picker/docs/#appreg
 
 Write your developer key as build environment variables.
-```
-echo 'VUE_APP_PICKER_DEVELOPER_KEY=<Your Developer Key...>' > .env.local
-```
-
-### Compiles and minifies for production
-```
-npm run build
+```console
+% echo 'VUE_APP_PICKER_DEVELOPER_KEY=<Your Developer Key...>' > .env.local
 ```
 
-### Push your files to GAS project
-```
-clasp push
+### Compiles and Minifies for Production
+```console
+% npm run build
 ```
 
-### Open webapp
+### Push Your Files to GAS Project
+```console
+% clasp push -f
+└─ dist/Code.js
+└─ dist/appsscript.json
+└─ dist/index.html
+Pushed 3 files.
+```
+
+### Open Webapp
 ```
 clasp open --webapp
+? Open which deployment?
+❯                               @HEAD - **********
+Opening web application: **********
 ```
 
-### Customize configuration
+### Customize Configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## See Also
