@@ -11,12 +11,12 @@ Google Apps Script project setup with
 
 ### Install node modules
 ```
-yarn install
+npm install
 ```
 
 ### Clasp setup
 ```
-yarn global add @google/clasp
+npm -g install @google/clasp
 clasp login
 clasp create --rootDir dist
 ```
@@ -32,7 +32,7 @@ echo 'VUE_APP_PICKER_DEVELOPER_KEY=<Your Developer Key...>' > .env.local
 
 ### Compiles and minifies for production
 ```
-yarn run build
+npm run build
 ```
 
 ### Push your files to GAS project
