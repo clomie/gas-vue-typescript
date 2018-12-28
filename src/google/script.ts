@@ -7,7 +7,7 @@ export class GoogleScript {
     return this.run('copyFile', params)
   }
 
-  private run(functionName: string, arg?: any): Promise<any> {
+  private run(functionName: string, ...args: any[]): Promise<any> {
     if (typeof google === 'undefined' || google.script === undefined) {
       return Promise.resolve()
     }
@@ -15,7 +15,7 @@ export class GoogleScript {
       google.script.run
         .withSuccessHandler(resolve)
         .withFailureHandler(reject)
-        [functionName](arg)
+        [functionName](args)
     })
   }
 }

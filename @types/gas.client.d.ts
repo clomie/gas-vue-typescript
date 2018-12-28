@@ -75,12 +75,16 @@ declare namespace google {
        */
       withUserObject(object: Object): run
 
-      [key: string]: (args?: any) => void
+      [functionName: string]: (...args: any[]) => void
     }
 
-    var run: run
+    const run: run
 
     namespace host {
+      /**
+       * Provides the host domain, so scripts can set their origin correctly.
+       */
+      const origin: string
       /**
        * Closes the current dialog or sidebar.
        */
@@ -101,8 +105,6 @@ declare namespace google {
          */
         function focus(): void
       }
-
-      var origin: string
     }
     /**
      * google.script.url is an asynchronous client-side JavaScript API that can query URLs to obtain the current URL parameters and fragment. This API supports the google.script.history API. It can only be used in the context of a web app that uses IFRAME.
