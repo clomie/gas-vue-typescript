@@ -54,25 +54,27 @@
   </v-card>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'copy-file',
   data() {
     return {
-      sourceFile: {},
-      targetFolder: {},
+      sourceFile: {} as PickedObject,
+      targetFolder: {} as PickedObject,
       newFileName: '',
       executing: false,
-      copiedFile: {}
+      copiedFile: {} as DriveFile
     }
   },
   computed: {
-    ready() {
+    ready(): boolean {
       const sourceFilePicked = this.sourceFile && this.sourceFile.id
       const targetFolderPicked = this.targetFolder && this.targetFolder.id
-      return sourceFilePicked && targetFolderPicked && this.newFileName
+      return !!(sourceFilePicked && targetFolderPicked && this.newFileName)
     },
-    params() {
+    params(): CopyFileParams {
       return {
         source: this.sourceFile,
         target: this.targetFolder,
@@ -98,5 +100,5 @@ export default {
       this.executing = false
     }
   }
-}
+})
 </script>

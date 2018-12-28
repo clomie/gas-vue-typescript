@@ -9,8 +9,9 @@
   </v-list-tile>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
   name: 'list-menu',
   props: {
     icon: {
@@ -25,5 +26,5 @@ export default {
       type: String
     }
   }
-}
+})
 </script>

@@ -16,17 +16,18 @@
   </v-app>
 </template>
 
-<script>
-import NavigationDrawer from './components/NavigationDrawer'
+<script lang="ts">
+import Vue from 'vue'
+import NavigationDrawer from './components/NavigationDrawer.vue'
 
-export default {
-  name: 'App',
+export default Vue.extend({
+  name: 'app',
   components: {
     NavigationDrawer
   },
   data() {
     return {
-      drawer: null
+      drawer: null as boolean | null
     }
   },
   methods: {
@@ -34,7 +35,7 @@ export default {
       this.drawer = !this.drawer
     }
   }
-}
+})
 </script>
 
 <style scoped>

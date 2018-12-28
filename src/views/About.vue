@@ -5,13 +5,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'About',
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'about',
   data() {
     return {
       timestamp: process.env.VUE_APP_BUILD_TIMESTAMP
     }
   }
-}
+})
 </script>

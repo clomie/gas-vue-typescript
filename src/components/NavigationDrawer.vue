@@ -7,10 +7,11 @@
   </v-navigation-drawer>
 </template>
 
-<script>
-import ListMenu from './ListMenu'
+<script lang="ts">
+import Vue from 'vue'
+import ListMenu from './NavigationDrawer/ListMenu.vue'
 
-export default {
+export default Vue.extend({
   name: 'navigation-drawer',
   components: { ListMenu },
   props: {
@@ -21,13 +22,13 @@ export default {
   },
   computed: {
     drawer: {
-      get() {
+      get(): boolean {
         return this.value
       },
-      set(newValue) {
+      set(newValue: boolean) {
         this.$emit('input', newValue)
       }
     }
   }
-}
+})
 </script>
