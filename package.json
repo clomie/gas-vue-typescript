@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && webpack --progress --config webpack.config.gas.js",
+    "build": "vue-cli-service build && npm run buildgas",
+    "buildgas": "webpack --progress --config webpack.config.gas.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

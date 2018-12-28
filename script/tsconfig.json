@@ -10,8 +10,9 @@
     "removeComments": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "paths": {},
     "lib": ["esnext"]
   },
-  "include": ["@types/**/*.ts", "script/**/*.ts"],
+  "include": ["../@types/**/*.ts", "**/*.ts"],
   "exclude": ["node_modules"]
 }

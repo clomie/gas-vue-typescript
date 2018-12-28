@@ -5,12 +5,14 @@ const GasPlugin = require('gas-webpack-plugin')
 const Es3ifyPlugin = require('es3ify-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+const tsconfigFile = __dirname + '/script/tsconfig.json'
+
 const loaders = [
   { loader: 'thread-loader' },
   {
     loader: 'ts-loader',
     options: {
-      configFile: 'tsconfig.gas.json',
+      configFile: tsconfigFile,
       transpileOnly: true,
       happyPackMode: true
     }
@@ -21,7 +23,7 @@ const cacheIdentifier = hash([
   require('typescript/package.json').version,
   require('ts-loader/package.json').version,
   require('cache-loader/package.json').version,
-  require('./tsconfig.gas.json'),
+  require(tsconfigFile),
   loaders,
   process.env.NODE_ENV
 ])
@@ -55,6 +57,7 @@ module.exports = {
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
+      tsconfig: tsconfigFile,
       tslint: false,
       formatter: 'codeframe',
       checkSyntacticErrors: true
