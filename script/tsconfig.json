@@ -13,6 +13,6 @@
     "paths": {},
     "lib": ["esnext"]
   },
-  "include": ["../@types/**/*.ts", "**/*.ts"],
+  "include": ["**/*.ts", "../types/**/*.ts"],
   "exclude": ["node_modules"]
 }
