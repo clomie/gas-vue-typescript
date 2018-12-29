@@ -1,4 +1,6 @@
-const productionConfig = {
+process.env.VUE_APP_BUILD_TIMESTAMP = new Date().toISOString()
+
+module.exports = {
   chainWebpack: config => {
     // make inline images
     config.module
@@ -63,8 +65,10 @@ const productionConfig = {
     // html minify settings for GAS
     config.plugin('html').tap(args => {
       args[0].inlineSource = '(/css/.+\\.css|/js/.+\\.js)'
-      args[0].minify.removeAttributeQuotes = false
-      args[0].minify.removeScriptTypeAttributes = false
+      if (args[0].minify) {
+        args[0].minify.removeAttributeQuotes = false
+        args[0].minify.removeScriptTypeAttributes = false
+      }
       return args
     })
   },
@@ -76,9 +80,6 @@ const productionConfig = {
   },
   css: {
     sourceMap: true
-  }
+  },
+  productionSourceMap: true
 }
-
-process.env.VUE_APP_BUILD_TIMESTAMP = new Date().toISOString()
-
-module.exports = process.env.NODE_ENV === 'production' ? productionConfig : {}
