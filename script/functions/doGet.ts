@@ -1,4 +1,4 @@
-export const doGet = () => {
+export function doGet() {
   // Load index.html(embeded css,js)
   const output = HtmlService.createHtmlOutputFromFile('index')
 

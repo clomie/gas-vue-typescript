@@ -1,6 +1,4 @@
-import { doGet } from './html'
-import { getOAuthToken } from './oauth'
-import { copyFile } from './command'
+import { doGet, getOAuthToken, copyFile } from './functions'
 
 declare var global: any
 
