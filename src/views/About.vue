@@ -1,7 +1,8 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <span>Built @ {{ timestamp }}</span>
+    <p>Built @ {{ timestamp }}</p>
+    <img alt="Vue logo" src="@/assets/logo.png">
   </div>
 </template>
 

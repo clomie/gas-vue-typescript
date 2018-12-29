@@ -4,42 +4,28 @@ const productionConfig = {
     config.module
       .rule('images')
       .use('url-loader')
-      .tap(options => {
-        delete options.limit
-        return options
-      })
+      .options({})
 
-    // make inline svgs
-    const svgFileLoaderConfig = config.module
-      .rule('svg')
-      .use('file-loader')
-      .toConfig()
-    config.module.rule('svg').uses.delete('file-loader')
-    config.module
-      .rule('svg')
-      .use('url-loader')
-      .loader('url-loader')
-      .options({
-        fallback: svgFileLoaderConfig
-      })
-
-    // make inline medias
+    // make inline media
     config.module
       .rule('media')
       .use('url-loader')
-      .tap(options => {
-        delete options.limit
-        return options
-      })
+      .options({})
 
     // make inline fonts
     config.module
       .rule('fonts')
       .use('url-loader')
-      .tap(options => {
-        delete options.limit
-        return options
-      })
+      .options({})
+
+    // make inline svg
+    config.module
+      .rule('svg')
+      .uses.delete('file-loader')
+      .end()
+      .use('url-loader')
+      .loader('url-loader')
+      .options({})
 
     // disable prefetch and preload
     config.plugins.delete('prefetch')
