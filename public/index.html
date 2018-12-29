@@ -1,4 +1,3 @@
-<% const packageJson = require('../package.json') %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,12 +7,6 @@
     <title>gas-vue-ts</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
-<% if (process.env.NODE_ENV === 'production') { %>
-    <link href="https://unpkg.com/vuetify@<%=packageJson.dependencies.vuetify %>/dist/vuetify.min.css" rel="stylesheet">
-  <% for (cssFile of htmlWebpackPlugin.files.css) { %>
-    <style type="text/css"><%= compilation.assets[cssFile.substr(htmlWebpackPlugin.files.publicPath.length)].source() %></style>
-  <% } %>
-<% } %>
   </head>
   <body>
     <noscript>
@@ -22,13 +15,5 @@
     <div id="app"><div id="loading"></div></div>
     <!-- built files will be auto injected -->
     <script src="https://apis.google.com/js/api.js"></script>
-<% if (process.env.NODE_ENV === 'production') { %>
-    <script src="https://unpkg.com/vue@<%= packageJson.dependencies['vue'] %>/dist/vue.runtime.min.js"></script>
-    <script src="https://unpkg.com/vue-router@<%= packageJson.dependencies['vue-router'] %>/dist/vue-router.min.js"></script>
-    <script src="https://unpkg.com/vuetify@<%= packageJson.dependencies['vuetify'] %>/dist/vuetify.min.js"></script>
-  <% for (jsFile of htmlWebpackPlugin.files.js) { %>
-    <script type="text/javascript"><%= compilation.assets[jsFile.substr(htmlWebpackPlugin.files.publicPath.length)].source() %></script>
-  <% } %>
-<% } %>
   </body>
 </html>

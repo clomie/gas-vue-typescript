@@ -31,9 +31,38 @@ const productionConfig = {
     config.plugins.delete('prefetch')
     config.plugins.delete('preload')
 
+    // Get npm modules from CDN
+    config.plugin('webpack-cdn').use(require('webpack-cdn-plugin'), [
+      {
+        modules: [
+          {
+            name: 'vue',
+            var: 'Vue',
+            path: 'dist/vue.runtime.min.js'
+          },
+          {
+            name: 'vue-router',
+            var: 'VueRouter',
+            path: 'dist/vue-router.min.js'
+          },
+          {
+            name: 'vuetify',
+            var: 'Vuetify',
+            path: 'dist/vuetify.min.js',
+            style: 'dist/vuetify.min.css'
+          }
+        ]
+      }
+    ])
+
+    // Make js and css inline into index.html
+    config
+      .plugin('html-inline-source')
+      .use(require('html-webpack-inline-source-plugin'))
+
     // html minify settings for GAS
     config.plugin('html').tap(args => {
-      args[0].inject = false
+      args[0].inlineSource = '(/css/.+\\.css|/js/.+\\.js)'
       args[0].minify.removeAttributeQuotes = false
       args[0].minify.removeScriptTypeAttributes = false
       return args
@@ -42,9 +71,6 @@ const productionConfig = {
   configureWebpack: {
     devtool: 'inline-source-map',
     externals: {
-      vue: 'Vue',
-      'vue-router': 'VueRouter',
-      vuetify: 'Vuetify',
       'vuetify/dist/vuetify.min.css': 'undefined'
     }
   },
