@@ -2,6 +2,19 @@ process.env.VUE_APP_BUILD_TIMESTAMP = new Date().toISOString()
 
 module.exports = {
   chainWebpack: config => {
+    // disable prefetch and preload
+    config.plugins.delete('prefetch')
+    config.plugins.delete('preload')
+
+    // Make js and css files inline into index.html
+    config
+      .plugin('html-inline-source')
+      .use(require('html-webpack-inline-source-plugin'))
+    config.plugin('html').tap(args => {
+      args[0].inlineSource = '^(/css/.+\\.css|/js/.+\\.js)'
+      return args
+    })
+
     // make inline images
     config.module
       .rule('images')
@@ -29,10 +42,6 @@ module.exports = {
       .loader('url-loader')
       .options({})
 
-    // disable prefetch and preload
-    config.plugins.delete('prefetch')
-    config.plugins.delete('preload')
-
     // Get npm modules from CDN
     config.plugin('webpack-cdn').use(require('webpack-cdn-plugin'), [
       {
@@ -57,20 +66,14 @@ module.exports = {
       }
     ])
 
-    // Make js and css inline into index.html
-    config
-      .plugin('html-inline-source')
-      .use(require('html-webpack-inline-source-plugin'))
-
-    // html minify settings for GAS
-    config.plugin('html').tap(args => {
-      args[0].inlineSource = '(/css/.+\\.css|/js/.+\\.js)'
-      if (args[0].minify) {
+    if (process.env.NODE_ENV === 'production') {
+      // html minify settings for GAS
+      config.plugin('html').tap(args => {
         args[0].minify.removeAttributeQuotes = false
         args[0].minify.removeScriptTypeAttributes = false
-      }
-      return args
-    })
+        return args
+      })
+    }
   },
   configureWebpack: {
     devtool: 'inline-source-map',
