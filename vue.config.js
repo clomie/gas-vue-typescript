@@ -49,7 +49,6 @@ const productionConfig = {
     }
   },
   css: {
-    extract: false,
     sourceMap: true
   }
 }
