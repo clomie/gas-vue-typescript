@@ -13,6 +13,12 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "types": [
+      "webpack-env",
+      "gapi",
+      "google.picker",
+      "google.script.client-side"
+    ],
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.ts"],
