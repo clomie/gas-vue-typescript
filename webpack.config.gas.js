@@ -1,3 +1,4 @@
+const fs = require('fs')
 const hash = require('hash-sum')
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
@@ -7,24 +8,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const tsconfigFile = __dirname + '/script/tsconfig.json'
 
-const loaders = [
-  { loader: 'thread-loader' },
-  {
-    loader: 'ts-loader',
-    options: {
-      configFile: tsconfigFile,
-      transpileOnly: true,
-      happyPackMode: true
-    }
-  }
-]
-
 const cacheIdentifier = hash([
   require('typescript/package.json').version,
   require('ts-loader/package.json').version,
   require('cache-loader/package.json').version,
   require(tsconfigFile),
-  loaders,
+  fs.readFileSync('./webpack.config.gas.js', 'utf-8'),
   process.env.NODE_ENV
 ])
 
@@ -50,7 +39,15 @@ module.exports = {
               cacheIdentifier
             }
           },
-          ...loaders
+          { loader: 'thread-loader' },
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: tsconfigFile,
+              transpileOnly: true,
+              happyPackMode: true
+            }
+          }
         ]
       }
     ]
