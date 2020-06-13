@@ -3,7 +3,6 @@ const hash = require('hash-sum')
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const GasPlugin = require('gas-webpack-plugin')
-const Es3ifyPlugin = require('es3ify-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const tsconfigFile = __dirname + '/tsconfig.json'
@@ -60,7 +59,6 @@ module.exports = {
       checkSyntacticErrors: true
     }),
     new GasPlugin(),
-    new Es3ifyPlugin(),
     // copy appsscript.json to dist dir
     new CopyWebpackPlugin([__dirname + '/appsscript.json'])
   ],

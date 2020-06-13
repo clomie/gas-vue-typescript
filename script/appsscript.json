@@ -1,10 +1,10 @@
 {
   "timeZone": "Asia/Tokyo",
-  "dependencies": {
-  },
+  "dependencies": {},
   "webapp": {
     "access": "ANYONE",
     "executeAs": "USER_ACCESSING"
   },
-  "exceptionLogging": "STACKDRIVER"
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
 }
