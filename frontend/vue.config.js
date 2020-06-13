@@ -1,6 +1,7 @@
 process.env.VUE_APP_BUILD_TIMESTAMP = new Date().toISOString()
 
 module.exports = {
+  outputDir: '../dist',
   chainWebpack: config => {
     // disable prefetch and preload
     config.plugins.delete('prefetch')

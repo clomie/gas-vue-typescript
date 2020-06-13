@@ -6,7 +6,7 @@ const GasPlugin = require('gas-webpack-plugin')
 const Es3ifyPlugin = require('es3ify-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const tsconfigFile = __dirname + '/script/tsconfig.json'
+const tsconfigFile = __dirname + '/tsconfig.json'
 
 const cacheIdentifier = hash([
   require('typescript/package.json').version,
@@ -19,9 +19,9 @@ const cacheIdentifier = hash([
 
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
-  entry: ['./script/Code.ts'],
+  entry: ['./Code.ts'],
   output: {
-    path: __dirname + '/dist',
+    path: __dirname + '/../dist',
     filename: 'Code.js'
   },
   resolve: {
@@ -62,7 +62,7 @@ module.exports = {
     new GasPlugin(),
     new Es3ifyPlugin(),
     // copy appsscript.json to dist dir
-    new CopyWebpackPlugin([__dirname + '/script/appsscript.json'])
+    new CopyWebpackPlugin([__dirname + '/appsscript.json'])
   ],
   optimization: {
     minimize: false
