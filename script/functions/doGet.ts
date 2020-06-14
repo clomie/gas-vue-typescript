@@ -1,4 +1,4 @@
-export function doGet() {
+export function doGet(): GoogleAppsScript.HTML.HtmlOutput {
   // Load index.html(embeded css,js)
   const output = HtmlService.createHtmlOutputFromFile('index')
 

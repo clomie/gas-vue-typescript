@@ -1,6 +1,6 @@
 import { doGet, getOAuthToken, copyFile } from './functions'
 
-declare var global: any
+declare let global: { [functionName: string]: unknown }
 
 global.doGet = doGet
 global.getOAuthToken = getOAuthToken
