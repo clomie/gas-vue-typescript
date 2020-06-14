@@ -14,7 +14,7 @@ new Vue({
 
 syncRouterWithGas(router)
 ;(async () => {
-  await gasPlugin(process.env.VUE_APP_PICKER_DEVELOPER_KEY)
+  await gasPlugin(process.env.VUE_APP_PICKER_DEVELOPER_KEY!)
 
   new Vue({
     router,
