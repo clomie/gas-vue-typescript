@@ -6,7 +6,7 @@ export function copyFile(params: CopyFileParams): CopyFileResult {
   const file = {
     id: copy.getId(),
     name: copy.getName(),
-    url: copy.getUrl()
+    url: copy.getUrl(),
   }
   return { file }
 }

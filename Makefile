@@ -21,6 +21,14 @@ install-script:
 
 install: install-frontend install-script ## Install dependencies
 
+lint-frontend:
+	cd ./frontend ; npm run lint
+
+lint-script:
+	cd ./script ; npm run lint
+
+lint: lint-frontend lint-script ## Lint codes
+
 build-frontend:
 	cd ./frontend ; npm run build
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 process.env.VUE_APP_BUILD_TIMESTAMP = new Date().toISOString()
 
 module.exports = {
