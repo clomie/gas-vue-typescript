@@ -5,7 +5,7 @@ import { GooglePicker } from '@/google/picker'
 
 export default async (developerKey: string) => {
   const script = new GoogleScript()
-  const [_, token] = await Promise.all([
+  const [, token] = await Promise.all([
     loadGapi('picker'),
     script.getOAuthToken()
   ])
