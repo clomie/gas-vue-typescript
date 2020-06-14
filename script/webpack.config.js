@@ -12,7 +12,7 @@ const cacheIdentifier = hash([
   require('ts-loader/package.json').version,
   require('cache-loader/package.json').version,
   require(tsconfigFile),
-  fs.readFileSync('./webpack.config.gas.js', 'utf-8'),
+  fs.readFileSync(__filename, 'utf-8'),
   process.env.NODE_ENV
 ])
 

@@ -2,7 +2,7 @@
   "name": "gas-vue-typescript_script",
   "private": true,
   "scripts": {
-    "build": "webpack --progress --config webpack.config.gas.js"
+    "build": "webpack --progress"
   },
   "dependencies": {},
   "devDependencies": {
