@@ -66,12 +66,36 @@ Setup your API key as build environment variables.
 Pushed 3 files.
 ```
 
-### Open Webapp
-```
-clasp open --webapp
+### Open pushed WebApp
+```console
+% clasp open --webapp
 ? Open which deployment?
-❯                               @HEAD - **********
-Opening web application: **********
+❯                               @HEAD - AKfycbaaaaaaa...
+Opening web application: AKfycbaaaaaaa...
+```
+
+### Release WebApp
+If the 1st time:
+
+```console
+% clasp version "First release"
+~ 1 Version ~
+1 - First release
+% clasp deploy -V 1
+- AKfycbbbbbbbb... @1.
+```
+
+2nd and after:
+
+```console
+% clasp version "Another release"
+Created version 2.
+% clasp deployments
+2 Deployments.
+- AKfycbaaaaaaa... @HEAD
+- AKfycbbbbbbbb... @1
+% clasp deploy -V 2 -i AKfycbbbbbbbb...
+- AKfycbbbbbbbb... @2.
 ```
 
 ### Customize Configuration
