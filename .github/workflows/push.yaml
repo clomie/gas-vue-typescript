@@ -1,0 +1,56 @@
+name: push
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-cache-${{ github.ref }}
+          restore-keys: |
+            npm-cache-${{ github.ref }}
+            npm-cache-
+      - run: make install
+      - uses: actions/cache@v2
+        with:
+          path: |
+            */node_modules
+          key: ${{ github.sha }}
+      - run: make lint
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - lint
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        id: restore-node-modules
+        with:
+          path: |
+            */node_modules
+          key: ${{ github.sha }}
+      - run: make install
+        if: steps.restore-node-modules.outputs.cache-hit != 'true'
+      - name: Setup .env
+        env:
+          PICKER_API_KEY: ${{ secrets.PICKER_API_KEY }}
+          CLASPRC_JSON: ${{ secrets.CLASPRC_JSON }}
+          CLASP_JSON: ${{ secrets.CLASP_JSON }}
+        run: |
+          echo "VUE_APP_PICKER_DEVELOPER_KEY=${PICKER_API_KEY}" > ./frontend/.env
+          echo "${CLASPRC_JSON}" > ~/.clasprc.json
+          echo "${CLASP_JSON}" > ./.clasp.json
+      - run: make build
+      - run: npm install @google/clasp
+      - run: npx clasp push -f
+      - run: npx clasp version "${COMMIT_MESSAGE} ${GITHUB_SHA}"
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+      - run: echo '::set-env name=DEPLOYMENT_ID::'$(npx clasp deployments | tail -n 1 | awk '{ print $2 }')
+      - run: echo '::set-env name=VERSION_NUMBER::'$(npx clasp versions | sed -n 2p | awk '{ print $1 }')
+      - run: npx clasp deploy -i ${DEPLOYMENT_ID} -V ${VERSION_NUMBER}

@@ -36,3 +36,12 @@ build-script:
 	cd ./script ; npm run build
 
 build: build-frontend build-script ## Build application
+
+test-workflow-lint:
+	act push -j lint -P ubuntu-latest=nektos/act-environments-ubuntu:18.04
+
+test-workflow:
+	VUE_APP_PICKER_DEVELOPER_KEY=`grep VUE_APP_PICKER_DEVELOPER_KEY ./frontend/.env.local | cut -d= -f2` \
+	CLASPRC_JSON=`cat ~/.clasprc.json` \
+	CLASP_JSON=`cat .clasp.json` \
+	act push -j deploy -P ubuntu-latest=nektos/act-environments-ubuntu:18.04 -s VUE_APP_PICKER_DEVELOPER_KEY -s CLASPRC_JSON -s CLASP_JSON
