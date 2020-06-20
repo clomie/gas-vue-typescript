@@ -33,6 +33,6 @@
     "typescript": "~3.9.3",
     "vue-cli-plugin-vuetify": "^0.4.6",
     "vue-template-compiler": "^2.6.11",
-    "webpack-cdn-plugin": "^2.3.3"
+    "webpack-cdn-plugin": "^3.3.1"
   }
 }
