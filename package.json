@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "gas-vue-typescript",
+  "workspaces": [
+    "frontend",
+    "script"
+  ],
+  "scripts": {
+    "build": "npm run build:frontend && npm run build:script",
+    "build:frontend": "yarn workspace frontend build",
+    "build:script": "yarn workspace script build",
+    "lint": "npm run lint:frontend && npm run lint:script",
+    "lint:frontend": "yarn workspace frontend lint",
+    "lint:script": "yarn workspace script lint"
+  }
+}

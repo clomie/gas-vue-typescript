@@ -11,7 +11,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {},
-    "lib": ["esnext"]
+    "lib": ["es6"]
   },
   "include": ["**/*.ts", "../types/**/*.ts"],
   "exclude": ["node_modules"]

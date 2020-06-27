@@ -14,7 +14,7 @@ const cacheIdentifier = hash([
   require('cache-loader/package.json').version,
   require(tsconfigFile),
   fs.readFileSync(__filename, 'utf-8'),
-  process.env.NODE_ENV,
+  process.env.NODE_ENV
 ])
 
 module.exports = {
@@ -22,10 +22,10 @@ module.exports = {
   entry: ['./Code.ts'],
   output: {
     path: __dirname + '/../dist',
-    filename: 'Code.js',
+    filename: 'Code.js'
   },
   resolve: {
-    extensions: ['.js', '.json', '.ts'],
+    extensions: ['.js', '.json', '.ts']
   },
   module: {
     rules: [
@@ -36,8 +36,8 @@ module.exports = {
             loader: 'cache-loader',
             options: {
               cacheDirectory: __dirname + '/node_modules/.cache/gas',
-              cacheIdentifier,
-            },
+              cacheIdentifier
+            }
           },
           { loader: 'thread-loader' },
           {
@@ -45,25 +45,25 @@ module.exports = {
             options: {
               configFile: tsconfigFile,
               transpileOnly: true,
-              happyPackMode: true,
-            },
-          },
-        ],
-      },
-    ],
+              happyPackMode: true
+            }
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       tsconfig: tsconfigFile,
       tslint: false,
       formatter: 'codeframe',
-      checkSyntacticErrors: true,
+      checkSyntacticErrors: true
     }),
     new GasPlugin(),
     // copy appsscript.json to dist dir
-    new CopyWebpackPlugin([__dirname + '/appsscript.json']),
+    new CopyWebpackPlugin([__dirname + '/appsscript.json'])
   ],
   optimization: {
-    minimize: false,
-  },
+    minimize: false
+  }
 }

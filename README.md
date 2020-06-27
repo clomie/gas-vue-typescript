@@ -48,7 +48,7 @@ Setup your API key as build environment variables.
 
 ### Install Dependencies
 ```console
-% make install
+% yarn
 ```
 
 ### Build Application
