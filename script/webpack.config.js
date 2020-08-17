@@ -39,13 +39,11 @@ module.exports = {
               cacheIdentifier,
             },
           },
-          { loader: 'thread-loader' },
           {
             loader: 'ts-loader',
             options: {
               configFile: tsconfigFile,
               transpileOnly: true,
-              happyPackMode: true,
             },
           },
         ],
@@ -54,10 +52,12 @@ module.exports = {
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: tsconfigFile,
-      tslint: false,
-      formatter: 'codeframe',
-      checkSyntacticErrors: true,
+      typescript: {
+        configFile: tsconfigFile,
+      },
+      eslint: {
+        files: '.',
+      },
     }),
     new GasPlugin(),
     // copy appsscript.json to dist dir
