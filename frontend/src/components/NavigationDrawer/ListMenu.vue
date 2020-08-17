@@ -16,15 +16,15 @@ export default Vue.extend({
   props: {
     icon: {
       type: String,
-      required: true
+      required: true,
     },
     title: {
       type: String,
-      required: true
+      required: true,
     },
     to: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 })
 </script>

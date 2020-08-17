@@ -65,7 +65,7 @@ export default Vue.extend({
       targetFolder: {} as PickedObject,
       newFileName: '',
       executing: false,
-      copiedFile: {} as DriveFile
+      copiedFile: {} as DriveFile,
     }
   },
   computed: {
@@ -78,9 +78,9 @@ export default Vue.extend({
       return {
         source: this.sourceFile,
         target: this.targetFolder,
-        fileName: this.newFileName
+        fileName: this.newFileName,
       }
-    }
+    },
   },
   methods: {
     async pickSourceFile() {
@@ -98,7 +98,7 @@ export default Vue.extend({
       this.copiedFile = file
 
       this.executing = false
-    }
-  }
+    },
+  },
 })
 </script>

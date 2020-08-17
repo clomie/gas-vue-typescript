@@ -9,17 +9,17 @@ export default new Router({
   routes: [
     {
       path: '*',
-      redirect: '/'
+      redirect: '/',
     },
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
     {
       path: '/about',
       name: 'about',
-      component: About
-    }
-  ]
+      component: About,
+    },
+  ],
 })

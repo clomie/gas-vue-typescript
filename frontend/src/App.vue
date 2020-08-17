@@ -23,18 +23,18 @@ import NavigationDrawer from './components/NavigationDrawer.vue'
 export default Vue.extend({
   name: 'app',
   components: {
-    NavigationDrawer
+    NavigationDrawer,
   },
   data() {
     return {
-      drawer: null as boolean | null
+      drawer: null as boolean | null,
     }
   },
   methods: {
     toggleDrawer() {
       this.drawer = !this.drawer
-    }
-  }
+    },
+  },
 })
 </script>
 

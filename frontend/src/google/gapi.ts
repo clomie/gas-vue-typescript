@@ -14,7 +14,7 @@ export function loadGapi(name: string): Promise<any> {
       timeout: 10000,
       ontimeout() {
         reject(new Error(`${name} could not load in 10000ms.`))
-      }
+      },
     })
   })
 }

@@ -11,7 +11,7 @@ import CopyFile from '@/components/CopyFile.vue'
 export default Vue.extend({
   name: 'home',
   components: {
-    CopyFile
-  }
+    CopyFile,
+  },
 })
 </script>

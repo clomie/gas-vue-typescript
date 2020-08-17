@@ -9,7 +9,7 @@ import { syncRouterWithGas } from './router-gas-sync'
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(Loading)
+  render: (h) => h(Loading),
 }).$mount('#loading')
 
 syncRouterWithGas(router)
@@ -18,6 +18,6 @@ syncRouterWithGas(router)
 
   new Vue({
     router,
-    render: h => h(App)
+    render: (h) => h(App),
   }).$mount('#app')
 })()
