@@ -3,7 +3,7 @@ process.env.VUE_APP_BUILD_TIMESTAMP = new Date().toISOString()
 
 module.exports = {
   outputDir: '../dist',
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     // disable prefetch and preload
     config.plugins.delete('prefetch')
     config.plugins.delete('preload')
@@ -12,28 +12,19 @@ module.exports = {
     config
       .plugin('html-inline-source')
       .use(require('html-webpack-inline-source-plugin'))
-    config.plugin('html').tap(args => {
+    config.plugin('html').tap((args) => {
       args[0].inlineSource = '^(/css/.+\\.css|/js/.+\\.js)'
       return args
     })
 
     // make inline images
-    config.module
-      .rule('images')
-      .use('url-loader')
-      .options({})
+    config.module.rule('images').use('url-loader').options({})
 
     // make inline media
-    config.module
-      .rule('media')
-      .use('url-loader')
-      .options({})
+    config.module.rule('media').use('url-loader').options({})
 
     // make inline fonts
-    config.module
-      .rule('fonts')
-      .use('url-loader')
-      .options({})
+    config.module.rule('fonts').use('url-loader').options({})
 
     // make inline svg
     config.module
@@ -51,26 +42,26 @@ module.exports = {
           {
             name: 'vue',
             var: 'Vue',
-            path: 'dist/vue.runtime.min.js'
+            path: 'dist/vue.runtime.min.js',
           },
           {
             name: 'vue-router',
             var: 'VueRouter',
-            path: 'dist/vue-router.min.js'
+            path: 'dist/vue-router.min.js',
           },
           {
             name: 'vuetify',
             var: 'Vuetify',
             path: 'dist/vuetify.min.js',
-            style: 'dist/vuetify.min.css'
-          }
-        ]
-      }
+            style: 'dist/vuetify.min.css',
+          },
+        ],
+      },
     ])
 
     if (process.env.NODE_ENV === 'production') {
       // html minify settings for GAS
-      config.plugin('html').tap(args => {
+      config.plugin('html').tap((args) => {
         args[0].minify.removeAttributeQuotes = false
         args[0].minify.removeScriptTypeAttributes = false
         return args
@@ -80,11 +71,11 @@ module.exports = {
   configureWebpack: {
     devtool: 'inline-source-map',
     externals: {
-      'vuetify/dist/vuetify.min.css': 'undefined'
-    }
+      'vuetify/dist/vuetify.min.css': 'undefined',
+    },
   },
   css: {
-    sourceMap: true
+    sourceMap: true,
   },
-  productionSourceMap: true
+  productionSourceMap: true,
 }

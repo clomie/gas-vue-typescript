@@ -13,8 +13,8 @@ export default Vue.extend({
   name: 'about',
   data() {
     return {
-      timestamp: process.env.VUE_APP_BUILD_TIMESTAMP
+      timestamp: process.env.VUE_APP_BUILD_TIMESTAMP,
     }
-  }
+  },
 })
 </script>

@@ -17,8 +17,8 @@ export default Vue.extend({
   props: {
     value: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   computed: {
     drawer: {
@@ -27,8 +27,8 @@ export default Vue.extend({
       },
       set(newValue: boolean) {
         this.$emit('input', newValue)
-      }
-    }
-  }
+      },
+    },
+  },
 })
 </script>
