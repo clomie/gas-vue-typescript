@@ -15,7 +15,7 @@ export class GoogleScript {
       google.script.run
         .withSuccessHandler(resolve)
         .withFailureHandler(reject)
-        [functionName](args)
+        [functionName](...args)
     })
   }
 }
