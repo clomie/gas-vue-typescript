@@ -10,7 +10,7 @@
             v-model="sourceFile.name"
             @click="pickSourceFile"
             solo
-            append-icon="insert_drive_file"
+            append-icon="mdi-file"
             readonly
             hide-details
           />
@@ -21,7 +21,7 @@
             v-model="targetFolder.name"
             @click="pickTargetFolder"
             solo
-            append-icon="folder"
+            append-icon="mdi-folder"
             readonly
             hide-details
           />
@@ -40,7 +40,7 @@
         :href="copiedFile.url"
         target="_blank"
         >ファイルを開く
-        <v-icon right>open_in_new</v-icon>
+        <v-icon right>mdi-open-in-new</v-icon>
       </v-btn>
       <v-btn
         v-else
