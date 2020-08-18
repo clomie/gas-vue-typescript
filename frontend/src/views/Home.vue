@@ -1,7 +1,7 @@
 <template>
-  <v-layout row wrap="" align-content-start>
-    <v-flex xs12><copy-file /></v-flex>
-  </v-layout>
+  <v-row>
+    <v-col cols="12"><copy-file /></v-col>
+  </v-row>
 </template>
 
 <script lang="ts">

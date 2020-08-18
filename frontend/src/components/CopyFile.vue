@@ -3,33 +3,33 @@
     <v-card-title class="headline">ファイルのコピー</v-card-title>
     <v-divider />
     <v-card-text>
-      <v-layout column>
-        <v-flex xs12>
+      <v-row dense>
+        <v-col cols="12">
           <v-text-field
             label="対象ファイル"
             v-model="sourceFile.name"
             @click="pickSourceFile"
             solo
-            append-icon="insert_drive_file"
+            append-icon="mdi-file"
             readonly
             hide-details
           />
-        </v-flex>
-        <v-flex xs12>
+        </v-col>
+        <v-col cols="12">
           <v-text-field
             label="作成先フォルダ"
             v-model="targetFolder.name"
             @click="pickTargetFolder"
             solo
-            append-icon="folder"
+            append-icon="mdi-folder"
             readonly
             hide-details
           />
-        </v-flex>
-        <v-flex xs12>
+        </v-col>
+        <v-col cols="12">
           <v-text-field label="ファイル名" v-model="newFileName" hide-details />
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-card-text>
     <v-divider />
     <v-card-actions>
@@ -40,7 +40,7 @@
         :href="copiedFile.url"
         target="_blank"
         >ファイルを開く
-        <v-icon right>open_in_new</v-icon>
+        <v-icon right>mdi-open-in-new</v-icon>
       </v-btn>
       <v-btn
         v-else

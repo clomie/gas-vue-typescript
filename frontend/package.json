@@ -11,7 +11,7 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",
-    "vuetify": "^1.5.24"
+    "vuetify": "^2.3.8"
   },
   "devDependencies": {
     "@types/gapi": "^0.0.39",
