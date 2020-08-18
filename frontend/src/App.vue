@@ -5,11 +5,11 @@
       <v-app-bar-nav-icon @click.stop="toggleDrawer" />
       <v-toolbar-title>GAS built by Vue CLI v3</v-toolbar-title>
     </v-app-bar>
-    <v-content>
-      <v-container fluid fill-height grid-list-md>
+    <v-main>
+      <v-container fluid>
         <router-view />
       </v-container>
-    </v-content>
+    </v-main>
     <v-footer color="blue" dark class="app-footer">
       <span>gas-vue-ts</span>
     </v-footer>
