@@ -17,5 +17,8 @@
     "lint": "npm run lint:frontend && npm run lint:script",
     "lint:frontend": "yarn workspace frontend lint",
     "lint:script": "yarn workspace script lint"
+  },
+  "devDependencies": {
+    "@google/clasp": "^2.3.0"
   }
 }
