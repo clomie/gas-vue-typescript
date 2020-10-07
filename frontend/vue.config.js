@@ -56,6 +56,7 @@ module.exports = {
             style: 'dist/vuetify.min.css',
           },
         ],
+        pathToNodeModules: process.cwd() + '/..',
       },
     ])
 

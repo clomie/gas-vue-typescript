@@ -48,12 +48,12 @@ Setup your API key as build environment variables.
 
 ### Install Dependencies
 ```console
-% make install
+% yarn
 ```
 
 ### Build Application
 ```console
-% make build
+% yarn build
 ```
 
 ### Push Built Files to GAS Project
