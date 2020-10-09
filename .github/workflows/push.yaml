@@ -51,6 +51,6 @@ jobs:
       - run: yarn run clasp version "${COMMIT_MESSAGE} ${GITHUB_SHA}"
         env:
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
-      - run: echo '::set-env name=DEPLOYMENT_ID::'$(yarn -s run clasp deployments | tail -n 1 | awk '{ print $2 }')
-      - run: echo '::set-env name=VERSION_NUMBER::'$(yarn -s run clasp versions | sed -n 2p | awk '{ print $1 }')
+      - run: echo "DEPLOYMENT_ID=$(yarn -s run clasp deployments | tail -n 1 | awk '{ print $2 }')" >> $GITHUB_ENV
+      - run: echo "VERSION_NUMBER=$(yarn -s run clasp versions | sed -n 2p | awk '{ print $1 }')" >> $GITHUB_ENV
       - run: yarn run clasp deploy -i ${DEPLOYMENT_ID} -V ${VERSION_NUMBER}
