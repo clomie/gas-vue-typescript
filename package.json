@@ -3,20 +3,20 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "frontend",
-      "script"
+      "client",
+      "server"
     ],
     "nohoist": [
       "**/@types/google-apps-script"
     ]
   },
   "scripts": {
-    "build": "npm run build:frontend && npm run build:script",
-    "build:frontend": "yarn workspace frontend build",
-    "build:script": "yarn workspace script build",
-    "lint": "npm run lint:frontend && npm run lint:script",
-    "lint:frontend": "yarn workspace frontend lint",
-    "lint:script": "yarn workspace script lint"
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "yarn workspace client build",
+    "build:server": "yarn workspace server build",
+    "lint": "npm run lint:client && npm run lint:server",
+    "lint:client": "yarn workspace client lint",
+    "lint:server": "yarn workspace server lint"
   },
   "devDependencies": {
     "@google/clasp": "^2.3.0"
