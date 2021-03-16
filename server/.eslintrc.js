@@ -13,4 +13,12 @@ module.exports = {
     'prettier/@typescript-eslint',
   ],
   parserOptions: {},
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
+  },
 }
