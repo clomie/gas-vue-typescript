@@ -1086,6 +1086,11 @@
   resolved "https://registry.yarnpkg.com/@types/google-apps-script/-/google-apps-script-1.0.14.tgz#194d0d1c5236651ddae03c512891605c88501839"
   integrity sha512-dxYrClArM39GGlANFbCJiBg+wBmmK5VuBW2/JBaqg6Bo/OpAcXJoQ69zml6HmuHoKJDw1WR+BRxeJ/U9L9dk8A==
 
+"@types/google-apps-script@^1.0.31":
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/@types/google-apps-script/-/google-apps-script-1.0.31.tgz#780107c1e821823224cfd075c061cf168af553e5"
+  integrity sha512-tgsJKk20fwFoh0Ml4Li3pqKQ5uu3Nr3XeRsee2+pkPGrJxDlA3qsHAA2q3/HRv5yi9U6QVvdGwJ16USnmA7wAA==
+
 "@types/google.picker@^0.0.34":
   version "0.0.34"
   resolved "https://registry.yarnpkg.com/@types/google.picker/-/google.picker-0.0.34.tgz#e1d4c22f200f4e22885854174fe48197c52c2f6a"
@@ -9723,6 +9728,11 @@ vuetify@^2.3.8:
   version "2.3.13"
   resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.3.13.tgz#afd5e00a1fe6a5207d3ee7f06f0bf3741b4f5f68"
   integrity sha512-1908+xtI329/L1MNdZ7DQ16u/HDOq7gNxSYREdQhzCKNWUymdkaFYaBY9kKPQd1JTwT+xQL7GKCH/fr9xrS1AA==
+
+vuex@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.6.2.tgz#236bc086a870c3ae79946f107f16de59d5895e71"
+  integrity sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==
 
 watch@^1.0.2:
   version "1.0.2"

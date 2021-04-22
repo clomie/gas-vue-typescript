@@ -1,24 +1,25 @@
 {
-  "name": "gas-vue-typescript",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "client",
-      "server"
-    ],
-    "nohoist": [
-      "**/@types/google-apps-script"
-    ]
-  },
-  "scripts": {
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "yarn workspace client build",
-    "build:server": "yarn workspace server build",
-    "lint": "npm run lint:client && npm run lint:server",
-    "lint:client": "yarn workspace client lint",
-    "lint:server": "yarn workspace server lint"
-  },
-  "devDependencies": {
-    "@google/clasp": "^2.3.0"
-  }
+    "name": "gas-vue-typescript",
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "client",
+            "server"
+        ],
+        "nohoist": [
+            "**/@types/google-apps-script"
+        ]
+    },
+    "scripts": {
+        "serve": "yarn workspace client serve",
+        "build": "npm run build:client && npm run build:server",
+        "build:client": "yarn workspace client build",
+        "build:server": "yarn workspace server build",
+        "lint": "npm run lint:client && npm run lint:server",
+        "lint:client": "yarn workspace client lint",
+        "lint:server": "yarn workspace server lint"
+    },
+    "devDependencies": {
+        "@google/clasp": "^2.3.0"
+    }
 }

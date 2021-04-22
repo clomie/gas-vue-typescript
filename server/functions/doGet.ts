@@ -1,9 +1,15 @@
+import { FAVICON, PROJECT_TITLE } from 'config'
+
 export function doGet(): GoogleAppsScript.HTML.HtmlOutput {
-  // Load index.html(embeded css,js)
-  const output = HtmlService.createHtmlOutputFromFile('index')
+    // Load index.html(embeded css,js)
+    const output = HtmlService.createHtmlOutputFromFile('index')
 
-  // Set viewport for mobile.
-  output.addMetaTag('viewport', 'width=device-width, initial-scale=1')
+    output.setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
+    output.setTitle(PROJECT_TITLE)
+    output.setFaviconUrl(FAVICON)
 
-  return output
+    // Set viewport for mobile.
+    output.addMetaTag('viewport', 'width=device-width, initial-scale=1')
+
+    return output
 }

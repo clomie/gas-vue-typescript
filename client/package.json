@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -11,10 +11,12 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",
-    "vuetify": "^2.3.8"
+    "vuetify": "^2.3.8",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@types/gapi": "^0.0.39",
+    "@types/google-apps-script": "^1.0.31",
     "@types/google.picker": "^0.0.34",
     "@types/google.script.client-side": "0.1.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
